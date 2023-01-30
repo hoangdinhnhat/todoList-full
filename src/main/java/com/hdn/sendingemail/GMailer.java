@@ -61,13 +61,13 @@ public class GMailer {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public void sendMail(String subject, String message) throws Exception {
+    public void sendMail(String subject, String message, String targetEmail) throws Exception {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(TEST_EMAIL));
         email.addRecipient(javax.mail.Message.RecipientType.TO,
-                new InternetAddress("bestspterfpt@gmail.com"));
+                new InternetAddress(targetEmail));
         email.setSubject(subject);
         email.setText(message);
 
@@ -93,7 +93,7 @@ public class GMailer {
     }
 
     public static void main(String[] args) throws Exception {
-        new GMailer().sendMail("A new message", " This is a automatic message");
+        new GMailer().sendMail("A new message 2", " This is a automatic message", "bestspterfpt@gmail.com");
     }
 
 }

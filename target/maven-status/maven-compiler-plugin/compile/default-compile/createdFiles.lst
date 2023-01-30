@@ -1,5 +1,7 @@
+com\hdn\controllers\logInWithGoogle.class
 com\hdn\mapper\UsesMapper.class
 com\hdn\model\ListTodos.class
+com\hdn\controllers\confirmEmailController.class
 com\hdn\controllers\loginController.class
 com\hdn\sendingemail\SendMessage.class
 com\hdn\model\ToDos.class
@@ -14,5 +16,6 @@ com\hdn\sendingemail\GMailer.class
 com\hdn\service\IUserServices.class
 com\hdn\service\UserServices.class
 com\hdn\mapper\RowMapper.class
+com\hdn\controllers\logOutController.class
 com\hdn\controllers\profileController.class
 com\hdn\controllers\signUpController.class

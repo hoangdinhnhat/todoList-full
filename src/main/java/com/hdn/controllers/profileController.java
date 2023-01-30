@@ -22,6 +22,11 @@ public class profileController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getSession().getAttribute("user") == null)
+        {
+            resp.sendRedirect("/ToDoList-Maven");
+            return;
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("profile/profile.jsp");
         dispatcher.forward(req, resp);
     }

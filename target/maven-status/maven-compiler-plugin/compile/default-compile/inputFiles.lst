@@ -1,6 +1,7 @@
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\storage\storage.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\signUpController.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\sendingemail\GmailQuickstart.java
+D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\confirmEmailController.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\DAO\MSSQLJDBCConnection.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\DAO\JDBCStatement.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\model\ToDos.java
@@ -12,7 +13,9 @@ D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\api\TodoA
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\profileController.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\service\IUserServices.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\sendingemail\GMailer.java
+D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\logOutController.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\service\UserServices.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\loginController.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\model\ListTodos.java
+D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\controllers\logInWithGoogle.java
 D:\Different(D)\Code\Java\JavaWeb\ToDoList-Maven\src\main\java\com\hdn\mapper\RowMapper.java

@@ -20,12 +20,15 @@
         if(user == null) response.sendRedirect("/ToDoList");
     %>
     <section class="navbar">
+        <div class="home-btn">
+            <a href="/ToDoList-Maven"><i class="fa-regular fa-house-user"></i></a>
+        </div>
         <div class="user" onclick="showUserFunc(this)">
             <i class="fa-light fa-circle-user"></i>
             <div class="profile">
                 <ul class="user-function">
-                    <li class="item">Your profile</li>
-                    <li class="item">Log Out</li>
+                    <a class="item" href="profile">Your profile</a>
+                    <a class="item" href="log-out">Log Out</a>
                 </ul>
             </div>
         </div>

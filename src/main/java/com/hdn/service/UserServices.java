@@ -57,7 +57,7 @@ public class UserServices implements IUserServices {
 
     public void setToDos(List<ToDos> todos, User user) {
         JDBCStatement DAO = new JDBCStatement("ToDoList");
-        String sql = String.format("DELETE FROM ToDos");
+        String sql = String.format("DELETE FROM ToDos WHERE username='%s'", user.getUsername());
         DAO.executeStatementUpdate(sql);
         for (ToDos todo : todos) {
             DAO.insertRecords("ToDos", "", String.format("'%s', '%s', '%s'", user.getUsername(), todo.getTitle(), todo.isCompleted() == true ? 1 : 0));
