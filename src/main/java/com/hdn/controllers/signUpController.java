@@ -7,6 +7,7 @@ package com.hdn.controllers;
 
 import com.hdn.model.User;
 import com.hdn.sendingemail.GMailer;
+import com.hdn.service.UserServices;
 import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
@@ -36,7 +37,11 @@ public class signUpController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String confPass = req.getParameter("conf-password");
-        if (!password.equals(confPass)) {
+
+        UserServices services = new UserServices();
+        boolean isValid = (services.getUserByEmail(email) == null ? true : false) && (services.getUser(username) == null ? true : false);
+        if(!isValid || !password.equals(confPass))
+        {
             resp.sendRedirect("/ToDoList-Maven");
             return;
         }

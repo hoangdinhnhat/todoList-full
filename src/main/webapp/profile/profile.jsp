@@ -36,38 +36,38 @@
 
     <div class="profile-info">
         <div class="changeAvatar"
-            style="background-image: url(https://wallpaperaccess.com/full/1111994.jpg);">
+            style="background-image: url(http://localhost:8080/ToDoList-Maven/storage?id=<%=user.getUsername() %>);">
             <form action="storage" target="_blank" method="post" enctype="multipart/form-data">
                 <label for="uploadFile" class="uploadBtn"><i class="fa-duotone fa-camera"></i></label>
                 <input type="file" name="imgFile" id="uploadFile">
             </form>
-        </div>
-        <div class="layerChangeImg">
-            <div class="containImg"
-                style="background-image: url();">
-            </div>
-            <div class="confirm">CONFIRM</div>
         </div>
         <div class="userInfor">
             <h1 style="text-align: center;">PROFILE</h1>
             <table>
                 <tr>
                     <th>Username: </th>
-                    <td>
+                    <td id="username">
                         <%=user.getUsername() %>
                     </td>
                 </tr>
 
-                <tr>
+                <tr ondblclick="edittingMode(this)">
                     <th>Password: </th>
                     <td>
-                        <%= user.getPassword() %>
+                        <p id="password"><%= user.getPassword() %></p>
+                        <input 
+                            type="text" 
+                            name="" 
+                            id="changePassword"
+                            onkeyup="event.keyCode === 13 && handleEnter(this)"
+                        >
                     </td>
                 </tr>
 
                 <tr>
                     <th>Email: </th>
-                    <td>
+                    <td id="email">
                         <%=user.getEmail() %>
                     </td>
                 </tr>

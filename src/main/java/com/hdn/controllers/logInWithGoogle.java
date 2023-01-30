@@ -10,6 +10,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
 import com.hdn.model.User;
+import com.hdn.service.UserServices;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
@@ -27,10 +28,9 @@ import javax.servlet.http.HttpSession;
  * @author Lenovo
  */
 @WebServlet(urlPatterns = {"/loginsWithGoogle"})
-public class logInWithGoogle extends HttpServlet{
-    
-    public String generatePassword()
-    {
+public class logInWithGoogle extends HttpServlet {
+
+    public String generatePassword() {
         String model = "!@#$%^&qwertyuiopasdfghjklzxcvbnm123456789";
         String output = "";
         for (int i = 0; i < 8; i++) {
@@ -39,11 +39,11 @@ public class logInWithGoogle extends HttpServlet{
         }
         return output;
     }
-    
+
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String credential = req.getParameter("credential");
@@ -72,11 +72,18 @@ public class logInWithGoogle extends HttpServlet{
             String email = payload.getEmail();
             boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
             String name = (String) payload.get("name");
-            String tmps[] = email.split("[@]");
-            String username = "google@" + tmps[0] + "_" + getRandomNumber(100000, 999999);
-            String password = generatePassword();
-            
-            User user = new User(username, email, password);
+
+            UserServices services = new UserServices();
+            User user = services.getUserByEmail(email);
+
+            if (user == null) {
+                String tmps[] = email.split("[@]");
+                String username = "google@" + tmps[0] + "_" + getRandomNumber(100000, 999999);
+                String password = generatePassword();
+                user = new User(username, email, password);
+                services.insertUser(user);
+            } 
+
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
             resp.sendRedirect("/ToDoList-Maven");

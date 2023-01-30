@@ -34,7 +34,7 @@ public class storage extends HttpServlet {
         resp.setContentType("image/jpeg");  
         String id = req.getParameter("id");
         if (id != null) {
-            String filepath = "D:\\Different(D)\\Code\\Java\\JavaWeb\\ToDoList\\storage\\";
+            String filepath = "D:\\Different(D)\\Code\\Java\\JavaWeb\\ToDoList-Maven\\storage\\";
             File f = new File(filepath);
             boolean check = false;
             for (String string : f.list()) {
@@ -70,12 +70,10 @@ public class storage extends HttpServlet {
             return;
         }
         InputStream input = filepart.getInputStream();
-        OutputStream output = new FileOutputStream("D:\\Different(D)\\Code\\Java\\JavaWeb\\ToDoList\\storage\\" + user.getUsername() + ".avatar");
-        OutputStream output2 = new FileOutputStream("D:\\Different(D)\\Code\\Java\\JavaWeb\\ToDoList\\storage\\pending.avatar");
+        OutputStream output = new FileOutputStream("D:\\Different(D)\\Code\\Java\\JavaWeb\\ToDoList-Maven\\storage\\" + user.getUsername() + ".avatar");
         int i;
         while ((i = input.read()) != -1) {
             output.write(i);
-            output2.write(i);
         }
         resp.setContentType("text/html");
         resp.getWriter().println("<script>window.close()</script>");

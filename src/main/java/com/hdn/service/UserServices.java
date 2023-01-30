@@ -45,6 +45,23 @@ public class UserServices implements IUserServices {
         JDBCStatement DAO = new JDBCStatement("ToDoList");
         DAO.insertRecords("Users", "", String.format("'%s', '%s', '%s'", user.getUsername(), user.getEmail(), user.getPassword()));
     }
+    
+    public User getUserByEmail(String email)
+    {
+        JDBCStatement DAO = new JDBCStatement("ToDoList");
+        String sql = String.format("SELECT * FROM Users WHERE email='%s'", email);
+        ResultSet rs = DAO.executeQuery(sql);
+        RowMapper<User> mapper = new UsesMapper();
+        List<User> users = mapper.map(rs);
+        return users.size() > 0 ? users.get(0) : null;
+    }
+    
+    public void setNewPassword(String username, String password)
+    {
+        JDBCStatement DAO = new JDBCStatement("ToDoList");
+        String sql = String.format("UPDATE Users SET password='%s' WHERE username='%s'", password, username);
+        DAO.executeStatementUpdate(sql);
+    }
 
     public List<ToDos> getTodos(String username) {
         JDBCStatement DAO = new JDBCStatement("ToDoList");

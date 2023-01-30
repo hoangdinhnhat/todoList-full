@@ -2,6 +2,7 @@ com\hdn\controllers\logInWithGoogle.class
 com\hdn\mapper\UsesMapper.class
 com\hdn\model\ListTodos.class
 com\hdn\controllers\confirmEmailController.class
+com\hdn\controllers\editController.class
 com\hdn\controllers\loginController.class
 com\hdn\sendingemail\SendMessage.class
 com\hdn\model\ToDos.class
