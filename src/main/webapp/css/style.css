@@ -1,0 +1,190 @@
+.navbar
+{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(175, 47, 47, 0.15);
+    font-family: monospace;
+}
+
+.navbar .user
+{
+    width: fit-content;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar .user i
+{
+    font-size: 35px;
+    padding: 5px 50px;
+    color: rgba(175, 47, 47, 0.7);
+}
+
+.navbar .user.clicked
+{
+    box-shadow: inset 0 0 10px 1px rgb(150, 150, 150);
+}
+
+.user .profile
+{
+    background-color: rgba(175, 47, 47, 0.15);
+    width: 150px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: none;
+    transition: .3s;
+}
+
+.user.clicked .profile
+{
+    display: block;
+}
+
+.user .profile ul
+{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user .profile .item
+{
+    background-color: white;
+    width: 90%;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.login-layer
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    font-family: monospace;
+    font-size: 15px;
+    transform: translateY(-200%);
+    opacity: 0;
+    animation: move-down .7s linear forwards;
+}
+
+@keyframes move-down
+{
+    from
+    {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    to
+    {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-layer .sign-in-up-form
+{
+    background-color: rgba(175, 47, 47, 0.15);
+    width: 30%;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    transition: .7s;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sign-in-up-form.unselected
+{
+    transform: translateX(200%);
+    opacity: 0;
+}
+
+.sign-in-up-form h1
+{
+    text-align: center;
+}
+
+.input-ele
+{
+    display: flex;
+}
+
+.input-ele label
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.input-ele input
+{
+    flex: 1;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.buttons
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sign-in-up-form input[type="submit"]
+{
+    padding: 10px;
+    align-self: center;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    font-family: monospace;
+    font-size: 15px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(189, 185, 185);
+}
+
+.buttons div
+{
+    text-decoration: none;
+    background-color: rgb(189, 185, 185);
+    width: 200px;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
