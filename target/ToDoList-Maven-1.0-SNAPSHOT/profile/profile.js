@@ -1,13 +1,11 @@
 var uploadFile = document.querySelector('#uploadFile')
-uploadFile.onchange = function ()
-{
+uploadFile.onchange = function () {
     var uploadForm = document.querySelector('.changeAvatar form')
     uploadForm.submit()
     location.reload();
 }
 
-function edittingMode(ele)
-{
+function edittingMode(ele) {
     let password = ele.querySelector('#password')
     let changePassword = ele.querySelector('#changePassword')
     password.style.display = 'none'
@@ -21,21 +19,20 @@ function checkUTF8(text) {
     try {
         utf8Text = decodeURIComponent(escape(text));
         return false
-    }catch(e) {
+    } catch (e) {
         return true
-    }   
+    }
 }
 
-function handleEnter(ele)
-{
+function handleEnter(ele) {
     let editValue = ele.value
-    if(editValue.indexOf(' ') != -1 || checkUTF8(editValue))
-    {
-        alert('Wrong password!')
+    if (editValue.indexOf(' ') != -1 || checkUTF8(editValue)) {
+        alert('Password cant include blank or utf8 character!')
         return;
     }
     let userInfor = document.querySelector('.userInfor')
-    let username = userInfor.querySelector('username')
+    let username = userInfor.querySelector('#username').textContent.trim()
+    console.log(username);
     let newInfo = username + ',' + editValue;
     let APIs = 'edited'
     let options = {
@@ -47,8 +44,12 @@ function handleEnter(ele)
         body: newInfo
     }
     fetch(APIs, options)
-    .then((resp) => resp.json())
-    .then((data) => {
-        location.reload()
-    })
+        .then((response) => {
+            let password = document.querySelector('#password')
+            let changePassword = document.querySelector('#changePassword')
+            password.style.display = 'block'
+            changePassword.value = password.textContent
+            changePassword.style.display = 'none'
+            location.reload()
+        })
 }

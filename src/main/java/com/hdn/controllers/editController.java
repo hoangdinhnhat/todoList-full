@@ -5,6 +5,7 @@
  */
 package com.hdn.controllers;
 
+import com.hdn.model.User;
 import com.hdn.service.UserServices;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,6 +35,9 @@ public class editController extends HttpServlet{
         String tmps [] = body.split(",");
         String username = tmps[0];
         String newPassword = tmps[1];
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        user.setPassword(newPassword);
         UserServices services = new UserServices();
         services.setNewPassword(username, newPassword);
     }

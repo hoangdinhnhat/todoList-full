@@ -58,6 +58,7 @@ public class UserServices implements IUserServices {
     
     public void setNewPassword(String username, String password)
     {
+        System.out.println(username + "," + password);
         JDBCStatement DAO = new JDBCStatement("ToDoList");
         String sql = String.format("UPDATE Users SET password='%s' WHERE username='%s'", password, username);
         DAO.executeStatementUpdate(sql);
